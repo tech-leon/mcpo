@@ -1,4 +1,3 @@
-
 services:
   mcp-proxy-server:
     build: .
@@ -6,13 +5,14 @@ services:
     container_name: mcp-proxy-server
     # env_file: .env
     restart: unless-stopped
-    ports:
-      - 9050:8000
-    # extra_hosts:
+    # ports:
+      # - 8000:8000
+      # extra_hosts:
       # - host.docker.internal:host-gateway
-    # volumes:
+      # volumes:
       # - ./data:/app/backend/data
-    networks: 
-      - net
-networks: 
-  net: {}
+    networks:
+      - main_net
+networks:
+  main_net:
+    external: true
